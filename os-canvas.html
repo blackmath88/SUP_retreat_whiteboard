@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>L&D OS Canvas | Universität Basel</title>
+  <style>
+    :root{
+      --bg:#f4f1eb; --paper:#fffdf8; --ink:#22201d; --muted:#706a62; --line:#ddd3c4;
+      --purpose:#4b7f75; --authority:#8c5b75; --structure:#5d6f8b; --strategy:#c66a4b;
+      --resources:#b58a3b; --innovation:#8b6ac6; --workflow:#4f7ca6; --meetings:#66875e;
+      --information:#2f7f92; --membership:#b55d68; --mastery:#6e6a57; --compensation:#9a7645;
+      --tension:#c84b42; --bright:#3c8b6c; --experiment:#c8913d; --question:#527aa3;
+      --shadow:0 22px 68px rgba(37,29,18,.13); --soft:0 10px 30px rgba(37,29,18,.08); --r:26px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:radial-gradient(circle at 5% 0%,rgba(75,127,117,.15),transparent 34%),radial-gradient(circle at 86% 8%,rgba(140,91,117,.12),transparent 32%),linear-gradient(180deg,#fbfaf7,var(--bg));color:var(--ink);font:15px/1.45 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh;overflow-x:hidden}
+    body::before{content:"";position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(rgba(34,32,29,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(34,32,29,.025) 1px,transparent 1px);background-size:38px 38px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.55),transparent 75%)}
+    a{color:inherit}.shell{display:grid;grid-template-columns:240px 1fr;min-height:100vh}.side{position:sticky;top:0;height:100vh;padding:22px 16px;border-right:1px solid var(--line);background:rgba(255,253,248,.78);backdrop-filter:blur(18px);z-index:4;display:flex;flex-direction:column;gap:16px}.brand{display:flex;gap:11px;align-items:center;font-weight:950;letter-spacing:-.035em;font-size:18px}.mark{width:36px;height:36px;border-radius:14px;background:conic-gradient(from 210deg,var(--purpose),var(--authority),var(--strategy),var(--resources),var(--innovation),var(--workflow),var(--information),var(--purpose));box-shadow:var(--soft);position:relative}.mark::after{content:"";position:absolute;inset:8px;background:var(--paper);border-radius:8px}.repo-nav{display:grid;gap:7px}.repo-nav a,.tab-btn{border:1px solid var(--line);background:rgba(255,253,248,.75);border-radius:999px;padding:9px 11px;text-decoration:none;font-weight:850;color:var(--ink);cursor:pointer;text-align:left}.repo-nav a.active,.tab-btn.active{background:var(--ink);color:#fff;border-color:var(--ink)}.divider{height:1px;background:var(--line);margin:2px 0}.small{color:var(--muted);font-size:12px}.actions{margin-top:auto;display:grid;gap:8px}.btn{border:0;border-radius:999px;background:var(--ink);color:#fff;font-weight:950;padding:11px 14px;cursor:pointer;text-decoration:none;text-align:center}.btn.secondary{background:var(--paper);color:var(--ink);border:1px solid var(--line)}.main{position:relative;z-index:1;padding:32px clamp(18px,4vw,54px) 54px}.hero{max-width:1180px;margin:0 auto 26px;display:grid;grid-template-columns:1.05fr .95fr;gap:22px;align-items:stretch}.hero-card{background:rgba(255,253,248,.84);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:26px;overflow:hidden;position:relative}.eyebrow{display:inline-flex;border:1px solid var(--line);border-radius:999px;background:rgba(255,253,248,.9);padding:7px 11px;color:var(--muted);font-weight:800;font-size:12px;margin-bottom:15px}.hero h1{font-size:clamp(42px,6.5vw,78px);line-height:.93;margin:0 0 18px;letter-spacing:-.065em}.lead{font-size:20px;line-height:1.32;color:#3f3b35;margin:0}.workflow{display:grid;gap:10px}.wf-step{border:1px solid var(--line);border-radius:18px;background:white;padding:13px;display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:start}.wf-step b{font-size:14px}.pillnum{width:34px;height:34px;border-radius:13px;background:var(--ink);color:white;display:grid;place-items:center;font-weight:950}.view{display:none;max-width:1180px;margin:0 auto}.view.active{display:block}.section-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin:10px 0 18px}.section-head h2{font-size:clamp(30px,4vw,52px);line-height:1;margin:0;letter-spacing:-.05em}.sub{color:var(--muted);max-width:720px;margin:7px 0 0}.canvas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.dim-card{min-height:178px;background:rgba(255,253,248,.94);border:1px solid var(--line);border-radius:2px;box-shadow:7px 7px 0 rgba(0,0,0,.13);padding:18px;position:relative;cursor:pointer;transition:.16s transform,.16s box-shadow;border-top:7px solid var(--accent)}.dim-card:hover{transform:translateY(-2px);box-shadow:9px 11px 0 rgba(0,0,0,.14)}.dim-card h3{margin:0 0 8px;text-transform:uppercase;letter-spacing:.08em;font-size:17px}.dim-card p{margin:0;color:#433f39;font-size:18px;line-height:1.28}.dim-card .count{position:absolute;right:14px;bottom:12px;background:color-mix(in srgb,var(--accent) 14%,#fff);border:1px solid color-mix(in srgb,var(--accent) 35%,var(--line));border-radius:999px;padding:5px 9px;font-weight:900;font-size:12px}.board-toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 16px}.select,.input,.textarea{border:1px solid var(--line);background:white;border-radius:14px;padding:10px 12px;font:inherit}.select{font-weight:800}.note-board{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.lane{background:rgba(255,253,248,.7);border:1px solid var(--line);border-radius:22px;padding:12px;min-height:430px}.lane h3{margin:3px 4px 12px;font-size:16px;display:flex;justify-content:space-between;align-items:center}.lane h3 span{font-size:12px;color:var(--muted);font-weight:800}.note{background:white;border:1px solid var(--line);border-left:7px solid var(--note);border-radius:18px;padding:12px;margin:9px 0;box-shadow:var(--soft);cursor:grab}.note:active{cursor:grabbing}.note h4{margin:0 0 6px;font-size:15px}.note p{margin:0;color:#5b554e;font-size:13px}.meta-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px}.chip{border-radius:999px;padding:3px 7px;background:#f1ece3;border:1px solid var(--line);font-size:11px;font-weight:850;color:#514b44}.dimchip{background:color-mix(in srgb,var(--accent) 14%,#fff);border-color:color-mix(in srgb,var(--accent) 38%,var(--line))}.workshop{display:grid;grid-template-columns:1fr 1fr;gap:18px}.work-card{background:rgba(255,253,248,.88);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--soft);padding:22px}.work-card h3{margin:0 0 8px;font-size:24px;letter-spacing:-.03em}.work-card ol{margin:12px 0 0;padding-left:20px}.work-card li{margin:7px 0}.export-box{background:#25221f;color:#fff;border-radius:24px;padding:16px;white-space:pre-wrap;max-height:520px;overflow:auto}.drawer-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.22);z-index:20}.drawer{position:fixed;top:0;right:0;width:min(620px,100vw);height:100vh;background:var(--paper);border-left:1px solid var(--line);box-shadow:-22px 0 70px rgba(0,0,0,.18);z-index:21;transform:translateX(104%);transition:.22s transform;display:flex;flex-direction:column}.drawer.open{transform:translateX(0)}.drawer-backdrop.open{display:block}.drawer-head{padding:20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;align-items:flex-start}.drawer-head h2{margin:0;font-size:32px;letter-spacing:-.045em}.close{border:1px solid var(--line);border-radius:50%;width:38px;height:38px;background:white;font-size:20px;cursor:pointer}.drawer-body{padding:20px;overflow:auto}.prompt-list{display:grid;gap:9px;margin:14px 0}.prompt{border:1px solid var(--line);background:#fff;border-radius:16px;padding:12px;color:#3f3b35}.form-grid{display:grid;gap:10px;margin-top:14px}.textarea{min-height:100px;resize:vertical}.footer-nav{position:fixed;right:18px;bottom:18px;display:flex;gap:8px;z-index:10;background:rgba(255,253,248,.86);border:1px solid var(--line);border-radius:999px;padding:8px;box-shadow:var(--soft);backdrop-filter:blur(14px)}.footer-nav a{text-decoration:none;border:1px solid var(--line);background:white;border-radius:999px;padding:9px 12px;font-weight:900}.footer-nav a.active{background:var(--ink);color:#fff}.drop-hover{outline:3px dashed rgba(34,32,29,.25);outline-offset:3px}
+    @media(max-width:1050px){.shell{grid-template-columns:1fr}.side{position:relative;height:auto}.repo-nav{grid-template-columns:repeat(4,1fr)}.hero,.workshop{grid-template-columns:1fr}.canvas-grid{grid-template-columns:repeat(2,1fr)}.note-board{grid-template-columns:1fr 1fr}.footer-nav{position:static;margin:20px;justify-content:center}.main{padding-top:20px}}
+    @media(max-width:700px){.repo-nav{grid-template-columns:1fr 1fr}.canvas-grid,.note-board{grid-template-columns:1fr}.hero h1{font-size:44px}.footer-nav{flex-wrap:wrap;border-radius:24px}.drawer-head h2{font-size:24px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <aside class="side">
+      <div class="brand"><span class="mark"></span><span>L&D OS Canvas</span></div>
+      <div class="small">Ein Diagnose- und Dialogartefakt für Zusammenarbeit, Rollen, Entscheidungen und Kultur.</div>
+      <div class="divider"></div>
+      <nav class="repo-nav" aria-label="Artefakt Navigation">
+        <a href="index.html">Home</a>
+        <a href="retraite.html">Retraite</a>
+        <a href="handlungsfelder.html">Handlungsfelder</a>
+        <a class="active" href="os-canvas.html">OS Canvas</a>
+      </nav>
+      <div class="divider"></div>
+      <button class="tab-btn active" data-view="overview">Überblick</button>
+      <button class="tab-btn" data-view="canvas">Canvas</button>
+      <button class="tab-btn" data-view="board">Whiteboard</button>
+      <button class="tab-btn" data-view="workshop">Workshop</button>
+      <button class="tab-btn" data-view="export">Export</button>
+      <div class="actions">
+        <button class="btn" id="addNoteBtn">Neue Karte</button>
+        <button class="btn secondary" id="resetBtn">Demo zurücksetzen</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <section class="hero view active" id="overview">
+        <div class="hero-card">
+          <div class="eyebrow">Operating System Canvas · angepasst für Leadership & Development</div>
+          <h1>Wie arbeiten wir eigentlich — und was erzeugt unsere Kultur?</h1>
+          <p class="lead">Der OS Canvas hilft L&D, nicht nur über “Kultur” zu sprechen, sondern über die konkreten Bedingungen, die Zusammenarbeit prägen: Entscheidungen, Rollen, Ressourcen, Meetings, Information, Lernen und Zugehörigkeit.</p>
+        </div>
+        <aside class="hero-card workflow">
+          <div class="wf-step"><div class="pillnum">1</div><div><b>Spannungen sichtbar machen</b><br><span class="small">Was bremst uns, macht Arbeit schwer oder erzeugt Reibung?</span></div></div>
+          <div class="wf-step"><div class="pillnum">2</div><div><b>Lichtblicke sammeln</b><br><span class="small">Was funktioniert bereits und sollte verstärkt werden?</span></div></div>
+          <div class="wf-step"><div class="pillnum">3</div><div><b>Muster erkennen</b><br><span class="small">Welche OS-Felder hängen zusammen?</span></div></div>
+          <div class="wf-step"><div class="pillnum">4</div><div><b>Experimente ableiten</b><br><span class="small">Kleine nächste Schritte statt grosser Kulturprogramme.</span></div></div>
+        </aside>
+      </section>
+
+      <section class="view" id="canvas">
+        <div class="section-head"><div><h2>The OS Canvas</h2><p class="sub">12 Linsen auf das Betriebssystem von L&D. Klick auf eine Karte öffnet Fragen, L&D-Deutung und Notizen.</p></div></div>
+        <div class="canvas-grid" id="dimensionGrid"></div>
+      </section>
+
+      <section class="view" id="board">
+        <div class="section-head"><div><h2>Whiteboard</h2><p class="sub">Drag & Drop zwischen Spannungen, Lichtblicken, Experimenten und offenen Fragen. Jede Karte ist editierbar und einem OS-Feld zugeordnet.</p></div></div>
+        <div class="board-toolbar">
+          <select class="select" id="filterDim"><option value="all">Alle OS-Felder</option></select>
+          <button class="btn secondary" id="copyMdBtn">Markdown kopieren</button>
+          <button class="btn secondary" id="downloadJsonBtn">JSON exportieren</button>
+        </div>
+        <div class="note-board" id="noteBoard"></div>
+      </section>
+
+      <section class="view" id="workshop">
+        <div class="section-head"><div><h2>Workshop-Format</h2><p class="sub">Ein leichter Ablauf, um den Canvas in einer Teamsitzung oder einem halbtägigen Mapping-Workshop einzusetzen.</p></div></div>
+        <div class="workshop">
+          <article class="work-card">
+            <h3>90-Minuten Team-Check</h3>
+            <ol>
+              <li><b>Check-in:</b> Was hat gerade unsere Aufmerksamkeit?</li>
+              <li><b>Spannungen:</b> Jede Person schreibt 3–5 Bremsen auf.</li>
+              <li><b>Lichtblicke:</b> Jede Person schreibt 3–5 Dinge auf, die gut funktionieren.</li>
+              <li><b>Zuordnen:</b> Karten auf OS-Felder legen.</li>
+              <li><b>Muster:</b> Welche 2–3 Felder sind gerade entscheidend?</li>
+              <li><b>Experiment:</b> ein kleiner nächster Schritt mit Owner.</li>
+            </ol>
+          </article>
+          <article class="work-card">
+            <h3>Halbtägiger Relationship-Workshop</h3>
+            <ol>
+              <li><b>Big 5 wählen:</b> UB, Chemie, Biozentrum, Juristische Fakultät, DBM.</li>
+              <li><b>Needs diagnostizieren:</b> OS-Felder als Gesprächsbrille nutzen.</li>
+              <li><b>Beziehungen mappen:</b> Wer kennt wen? Wo fehlen Brücken?</li>
+              <li><b>Hypothesen:</b> Welche Spannungen vermuten wir in den Einheiten?</li>
+              <li><b>Dialogdesign:</b> Welche Fragen stellen wir, ohne direkt Angebote zu verkaufen?</li>
+              <li><b>Ernte:</b> Relationship Map, erste Interviews, nächste Experimente.</li>
+            </ol>
+          </article>
+        </div>
+      </section>
+
+      <section class="view" id="export">
+        <div class="section-head"><div><h2>Export</h2><p class="sub">Markdown für Protokoll, Teams, GitHub oder Weiterarbeit in anderen Dokumenten.</p></div><button class="btn" id="refreshExportBtn">Aktualisieren</button></div>
+        <pre class="export-box" id="exportBox"></pre>
+      </section>
+    </main>
+  </div>
+
+  <nav class="footer-nav" aria-label="Repository Schnellnavigation">
+    <a href="index.html">Home</a>
+    <a href="retraite.html">Retraite</a>
+    <a href="handlungsfelder.html">Handlungsfelder</a>
+    <a class="active" href="os-canvas.html">OS Canvas</a>
+  </nav>
+
+  <div class="drawer-backdrop" id="backdrop"></div>
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-head"><div><div class="eyebrow" id="drawerEyebrow">OS Canvas</div><h2 id="drawerTitle"></h2></div><button class="close" id="closeDrawer">×</button></div>
+    <div class="drawer-body" id="drawerBody"></div>
+  </aside>
+
+<script>
+const DIMENSIONS = [
+  {id:'purpose', title:'Purpose', de:'Höherer Zweck', short:'Wie wir uns orientieren und steuern', color:'var(--purpose)', ld:'Wozu gibt es L&D — und wie hilft uns dieser Zweck, Nein zu sagen?', prompts:['Warum gibt es L&D an der Universität Basel?','Welche Entscheidungen werden durch unseren Purpose leichter?','Wo arbeiten wir gegen unseren Purpose oder zu breit?']},
+  {id:'authority', title:'Authority', de:'Autorität', short:'Wie wir Macht teilen und entscheiden', color:'var(--authority)', ld:'Wer darf was entscheiden — im Team, in OC und gegenüber Stakeholdern?', prompts:['Welche Entscheidungen können wir autonom treffen?','Wo warten wir zu lange auf Erlaubnis?','Was lässt sich mit vertretbarem Risiko ausprobieren?']},
+  {id:'structure', title:'Structure', de:'Struktur', short:'Wie wir uns organisieren und teamen', color:'var(--structure)', ld:'Welche Rollen, Schnittstellen und Verantwortlichkeiten machen uns wirksam?', prompts:['Welche Rollen sind klar, welche implizit?','Wie sind Themen- und Zielgruppenverantwortungen verteilt?','Wo erzeugt Struktur Reibung oder Orientierung?']},
+  {id:'strategy', title:'Strategy', de:'Strategie', short:'Wie wir planen und priorisieren', color:'var(--strategy)', ld:'Wie priorisieren wir zwischen Angeboten, Relationship Management, Funding und Wirkung?', prompts:['Was ist wirklich strategisch für 2026/27?','Wie entscheiden wir, was wir nicht tun?','Welche Roadmap steuert unseren Alltag?']},
+  {id:'resources', title:'Resources', de:'Ressourcen', short:'Wie wir Zeit und Geld investieren', color:'var(--resources)', ld:'Wie setzen wir Zeit, Aufmerksamkeit, Budget und Energie so ein, dass Wirkung entsteht?', prompts:['Wofür verwenden wir zu viel Zeit?','Welche Aufgaben binden Ressourcen ohne strategischen Nutzen?','Welche Funding- oder Partneroptionen stärken Fokus?']},
+  {id:'innovation', title:'Innovation', de:'Innovation', short:'Wie wir lernen und uns entwickeln', color:'var(--innovation)', ld:'Wie experimentiert L&D mit neuen Formaten, ohne sich zu verzetteln?', prompts:['Wer darf neue Formate anstossen?','Wie lernen wir aus Fehlern und Piloten?','Welche Experimente sind klein genug, um jetzt zu starten?']},
+  {id:'workflow', title:'Workflow', de:'Arbeitsprozess', short:'Wie wir Arbeit teilen und durchführen', color:'var(--workflow)', ld:'Wie kommt Arbeit von Need zu Massnahme zu Umsetzung zu Evaluation?', prompts:['Wie werden Projekte initiiert, priorisiert und abgeschlossen?','Wo verlieren wir Sichtbarkeit über Aufgaben?','Was ist unser einfachster Flow von Anfrage zu Entscheidung?']},
+  {id:'meetings', title:'Meetings', de:'Meetings', short:'Wie wir zusammenkommen und koordinieren', color:'var(--meetings)', ld:'Welche Meetings steuern wirklich — und welche fressen Energie?', prompts:['Hat jedes Meeting einen klaren Zweck?','Wie werden Entscheidungen und Learnings sichtbar gemacht?','Wie nutzen wir Redaktionsmeeting und Teamsitzung besser?']},
+  {id:'information', title:'Information', de:'Information', short:'Wie wir Wissen und Daten teilen', color:'var(--information)', ld:'Welche Daten, Insights und Stakeholder-Stimmen brauchen wir für gute Entscheidungen?', prompts:['Welche Informationen liegen bei Einzelnen statt im Team?','Welche HR-/L&D-Daten brauchen wir?','Wie dokumentieren wir Dialoge, Needs und Wirkung?']},
+  {id:'membership', title:'Membership', de:'Zugehörigkeit', short:'Wie wir Beziehungen definieren und gestalten', color:'var(--membership)', ld:'Wie entstehen Beziehung, Vertrauen und Zugehörigkeit — im Team und mit Partnern?', prompts:['Wer gehört zu welchem Beziehungskreis?','Wie pflegen wir Relationship Management?','Wie machen wir neue Partner zu Mitgestalter:innen statt Kund:innen?']},
+  {id:'mastery', title:'Mastery', de:'Kompetenzentwicklung', short:'Wie wir wachsen und reifen', color:'var(--mastery)', ld:'Welche Kompetenzen braucht L&D selbst, um strategischer zu wirken?', prompts:['Was müssen wir als Team lernen?','Welche Stärken nutzen wir zu wenig?','Wo brauchen wir Feedback, Sparring oder Shadowing?']},
+  {id:'compensation', title:'Compensation', de:'Versorgung & Anerkennung', short:'Wie wir entlohnen und versorgen', color:'var(--compensation)', ld:'Im Uni-Kontext: Wie werden Beitrag, Aufwand, Anerkennung, Entlastung und Ressourcen fair sichtbar?', prompts:['Was wird bei uns anerkannt — und was unsichtbar geleistet?','Wie gehen wir mit Belastung und Entlastung um?','Welche Ressourcenlogik fühlt sich fair und nachhaltig an?']}
+];
+const TYPES = [
+  {id:'tension', title:'Spannungen', color:'var(--tension)'},
+  {id:'bright', title:'Lichtblicke', color:'var(--bright)'},
+  {id:'experiment', title:'Experimente', color:'var(--experiment)'},
+  {id:'question', title:'Offene Fragen', color:'var(--question)'}
+];
+const DEMO_NOTES = [
+  {id:'n1',type:'tension',dim:'authority',title:'Entscheidungsspielräume unklar',text:'Was entscheidet L&D selbst, was braucht OC / VR P&C?',owner:'Christiane',status:'offen'},
+  {id:'n2',type:'tension',dim:'strategy',title:'Zu viele gute Themen',text:'Gefahr der Verzettelung zwischen Angeboten, Big 5, Funding und Wirkung.',owner:'Team',status:'offen'},
+  {id:'n3',type:'bright',dim:'membership',title:'Hohe Dialogenergie',text:'Retreat zeigt: Es gibt Lust auf gemeinsames Gestalten und Beziehungspflege.',owner:'Sarina',status:'verstärken'},
+  {id:'n4',type:'experiment',dim:'meetings',title:'Redaktionsmeeting als Steuerung testen',text:'Themen, Zielgruppen, Kanäle und Team-Alignment gemeinsam steuern.',owner:'Achim',status:'testen'},
+  {id:'n5',type:'experiment',dim:'information',title:'Big-5 Relationship Map',text:'Erster halbtägiger Workshop zu UB, Chemie, Biozentrum, IUS, DBM.',owner:'Corina',status:'nächster Schritt'},
+  {id:'n6',type:'question',dim:'resources',title:'Welche Daten brauchen wir?',text:'Welche HR-Daten und internen Kennzahlen sind für L&D wirklich steuerungsrelevant?',owner:'Donja',status:'klären'}
+];
+const LS_KEY='ld_os_canvas_state_v1';
+let notes = loadNotes();
+let currentDim = null;
+function loadNotes(){try{return JSON.parse(localStorage.getItem(LS_KEY)) || DEMO_NOTES}catch(e){return DEMO_NOTES}}
+function saveNotes(){localStorage.setItem(LS_KEY, JSON.stringify(notes));}
+function byId(id){return document.getElementById(id)}
+function esc(str=''){return String(str).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));}
+function dim(id){return DIMENSIONS.find(d=>d.id===id)}
+function type(id){return TYPES.find(t=>t.id===id)}
+function renderDimensions(){
+  const grid=byId('dimensionGrid');
+  grid.innerHTML = DIMENSIONS.map(d=>{
+    const count=notes.filter(n=>n.dim===d.id).length;
+    return `<article class="dim-card" draggable="false" style="--accent:${d.color}" onclick="openDimension('${d.id}')"><h3>${d.title}</h3><p>${d.short}</p><div class="small" style="margin-top:12px;font-weight:800">${d.de}</div><span class="count">${count} Karten</span></article>`
+  }).join('');
+  const select=byId('filterDim');
+  if(select && select.options.length<2){DIMENSIONS.forEach(d=>select.insertAdjacentHTML('beforeend',`<option value="${d.id}">${d.title} · ${d.de}</option>`));}
+}
+function renderBoard(){
+  const filter=byId('filterDim')?.value || 'all';
+  const board=byId('noteBoard');
+  board.innerHTML = TYPES.map(t=>{
+    const laneNotes=notes.filter(n=>n.type===t.id && (filter==='all'||n.dim===filter));
+    return `<section class="lane" data-type="${t.id}" ondragover="event.preventDefault();this.classList.add('drop-hover')" ondragleave="this.classList.remove('drop-hover')" ondrop="dropNote(event,'${t.id}',this)"><h3>${t.title}<span>${laneNotes.length}</span></h3>${laneNotes.map(renderNote).join('')}</section>`;
+  }).join('');
+}
+function renderNote(n){const d=dim(n.dim), t=type(n.type);return `<article class="note" draggable="true" ondragstart="dragNote(event,'${n.id}')" onclick="openNote('${n.id}')" style="--note:${t.color};--accent:${d.color}"><h4>${esc(n.title)}</h4><p>${esc(n.text)}</p><div class="meta-row"><span class="chip dimchip">${d.title}</span><span class="chip">${esc(n.owner||'Team')}</span><span class="chip">${esc(n.status||'offen')}</span></div></article>`}
+function dragNote(ev,id){ev.dataTransfer.setData('text/plain',id);}
+function dropNote(ev,typeId,lane){ev.preventDefault();lane.classList.remove('drop-hover');const id=ev.dataTransfer.getData('text/plain');const n=notes.find(x=>x.id===id);if(n){n.type=typeId;saveNotes();renderAll();}}
+function switchView(id){document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id===id));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active',b.dataset.view===id)); if(id==='export') renderExport();}
+document.querySelectorAll('.tab-btn').forEach(b=>b.addEventListener('click',()=>switchView(b.dataset.view)));
+function openDrawer(title, body, eyebrow='OS Canvas'){byId('drawerTitle').textContent=title;byId('drawerEyebrow').textContent=eyebrow;byId('drawerBody').innerHTML=body;byId('drawer').classList.add('open');byId('backdrop').classList.add('open');}
+function closeDrawer(){byId('drawer').classList.remove('open');byId('backdrop').classList.remove('open');}
+byId('closeDrawer').onclick=closeDrawer;byId('backdrop').onclick=closeDrawer;
+function openDimension(id){currentDim=id;const d=dim(id);const dimNotes=notes.filter(n=>n.dim===id);openDrawer(`${d.title} · ${d.de}`, `<p class="lead" style="font-size:18px">${esc(d.ld)}</p><div class="prompt-list">${d.prompts.map(p=>`<div class="prompt">${esc(p)}</div>`).join('')}</div><button class="btn" onclick="openNewNote('${id}')">Karte zu diesem Feld hinzufügen</button><h3 style="margin-top:22px">Karten in diesem Feld</h3>${dimNotes.length?dimNotes.map(renderNote).join(''):'<p class="small">Noch keine Karten.</p>'}`, d.short);}
+function openNewNote(dimId='purpose'){openNote(null, dimId)}
+function openNote(id, defaultDim='purpose'){
+  const n = id ? notes.find(x=>x.id===id) : {id:'',type:'tension',dim:defaultDim,title:'',text:'',owner:'Team',status:'offen'};
+  openDrawer(id?'Karte bearbeiten':'Neue Karte', `<div class="form-grid"><label>Typ<select class="select" id="editType">${TYPES.map(t=>`<option value="${t.id}" ${n.type===t.id?'selected':''}>${t.title}</option>`).join('')}</select></label><label>OS-Feld<select class="select" id="editDim">${DIMENSIONS.map(d=>`<option value="${d.id}" ${n.dim===d.id?'selected':''}>${d.title} · ${d.de}</option>`).join('')}</select></label><label>Titel<input class="input" id="editTitle" value="${esc(n.title)}"></label><label>Beschreibung<textarea class="textarea" id="editText">${esc(n.text)}</textarea></label><label>Owner<input class="input" id="editOwner" value="${esc(n.owner||'Team')}"></label><label>Status<input class="input" id="editStatus" value="${esc(n.status||'offen')}"></label><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" onclick="saveNote('${id||''}')">Speichern</button>${id?`<button class="btn secondary" onclick="deleteNote('${id}')">Löschen</button>`:''}</div></div>`, id?'Karte':'Neue Karte');}
+function saveNote(id){const payload={id:id||('n'+Date.now()),type:byId('editType').value,dim:byId('editDim').value,title:byId('editTitle').value.trim()||'Ohne Titel',text:byId('editText').value.trim(),owner:byId('editOwner').value.trim()||'Team',status:byId('editStatus').value.trim()||'offen'}; if(id){notes=notes.map(n=>n.id===id?payload:n)}else{notes.push(payload)} saveNotes(); closeDrawer(); renderAll();}
+function deleteNote(id){notes=notes.filter(n=>n.id!==id);saveNotes();closeDrawer();renderAll();}
+byId('addNoteBtn').onclick=()=>openNewNote('purpose');
+byId('resetBtn').onclick=()=>{if(confirm('Demo-Daten wiederherstellen? Eigene Änderungen werden überschrieben.')){notes=[...DEMO_NOTES];saveNotes();renderAll();}}
+byId('filterDim')?.addEventListener('change', renderBoard);
+function markdown(){let out='# L&D OS Canvas — Export\n\n'; DIMENSIONS.forEach(d=>{const ns=notes.filter(n=>n.dim===d.id); out+=`## ${d.title} · ${d.de}\n${d.ld}\n\n`; TYPES.forEach(t=>{const xs=ns.filter(n=>n.type===t.id); if(xs.length){out+=`### ${t.title}\n`; xs.forEach(n=>{out+=`- **${n.title}** (${n.owner||'Team'}, ${n.status||'offen'}): ${n.text}\n`;}); out+='\n';}});}); return out;}
+function renderExport(){byId('exportBox').textContent=markdown();}
+byId('refreshExportBtn').onclick=renderExport;
+byId('copyMdBtn').onclick=async()=>{await navigator.clipboard.writeText(markdown()); alert('Markdown kopiert.');};
+byId('downloadJsonBtn').onclick=()=>{const blob=new Blob([JSON.stringify({dimensions:DIMENSIONS,notes},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='ld-os-canvas-export.json';a.click();URL.revokeObjectURL(a.href);}
+function renderAll(){renderDimensions();renderBoard();renderExport();}
+renderAll();
+</script>
+</body>
+</html>

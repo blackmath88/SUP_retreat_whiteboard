@@ -252,7 +252,7 @@ const DEFAULT_DATA = {
 };
 
 
-const PEOPLE = ['Christiane','Juliane','Donja','Carla','Achim','Corina','Sarina'];
+const PEOPLE = ['TBD','Christiane','Juliane','Donja','Carla','Achim','Corina','Sarina'];
 const ROADMAP_PHASES = [
   {id:'now', label:'Jetzt / Retreat', hint:'Juni 2026'},
   {id:'q3_2026', label:'Q3 2026', hint:'Juli–Sept.'},
@@ -263,42 +263,42 @@ const ROADMAP_PHASES = [
   {id:'parked', label:'Noch offen', hint:'später / prüfen'}
 ];
 const AGENCY_DEFAULTS = {
-  r1:{owner:'Christiane, Sarina', agency:'Christiane bringt die OC-Rollenklärung ein; Sarina spiegelt, was daraus für L&D-Praxis und Kultur folgt; Team markiert offene Konsequenzen.', roadmapPhase:'now'},
-  r2:{owner:'Christiane, Donja, Achim', agency:'Christiane rahmt das Mandat; Donja schärft Leadership/L&D-Fachlogik; Achim übersetzt es in ein visuelles Rollenbild.', roadmapPhase:'q3_2026'},
-  r3:{owner:'Christiane, Donja, Sarina', agency:'Christiane klärt mit OC/HR; Donja und Sarina sammeln Schnittstellenfälle aus Angeboten und Praxis.', roadmapPhase:'q3_2026'},
-  r4:{owner:'Christiane, Achim', agency:'Christiane definiert Entscheidungsspielräume; Achim baut eine einfache Entscheidungs-/Eskalationskarte.', roadmapPhase:'q4_2026'},
-  r5:{owner:'Alle, Achim', agency:'Alle benennen eigene Themenkreise; Achim visualisiert Owners, Zielgruppen und Verantwortlichkeiten im Teamhaus.', roadmapPhase:'q4_2026'},
-  r6:{owner:'Christiane, Team', agency:'Christiane hostet eine Stop-Doing-Runde; alle markieren Feuerwehrarbeit, die nicht mehr automatisch übernommen wird.', roadmapPhase:'q1_2027'},
-  k1:{owner:'Achim, Christiane', agency:'Achim baut die Angebotslandkarte und erste Visuals; Christiane schärft Kernsatz, Mandat und Freigabe.', roadmapPhase:'q3_2026'},
-  k2:{owner:'Achim, Juliane, Donja', agency:'Achim schnürt Kommunikationspakete; Juliane prüft Anschluss an Fortbildung/Anmeldung; Donja liefert Fachwording zu Leadership.', roadmapPhase:'q3_2026'},
-  k3:{owner:'Juliane, Carla, Sarina', agency:'Juliane und Carla sammeln bestehende Kanäle; Sarina identifiziert Formate mit Strahlkraft und passende Anknüpfungen.', roadmapPhase:'q4_2026'},
-  k4:{owner:'Sarina, Corina, Achim', agency:'Sarina und Corina sammeln Best Practices; Achim macht daraus kurze Story-/Testimonial-Module.', roadmapPhase:'q4_2026'},
-  k5:{owner:'Christiane, Donja', agency:'Christiane klärt MAG/OC-Schnittstelle; Donja schärft Change-Management-Logik und fachliche Abgrenzung.', roadmapPhase:'q3_2026'},
-  k6:{owner:'Achim, Carla, Christiane', agency:'Achim strukturiert das Redaktionsmeeting; Carla unterstützt Nachhalten; Christiane priorisiert Themen und Timing.', roadmapPhase:'q3_2026'},
-  c1:{owner:'Christiane, Corina, Achim', agency:'Christiane setzt Big-5-Fokus; Corina bringt OE-Perspektive ein; Achim erstellt erste Map-Vorlage.', roadmapPhase:'now'},
-  c2:{owner:'Achim, Corina, Sarina', agency:'Achim bereitet den Mapping-Workshop vor; Corina integriert OS-/OE-Fragen; Sarina ergänzt Kultur- und Community-Perspektive.', roadmapPhase:'q3_2026'},
-  c3:{owner:'Christiane, Alle', agency:'Christiane klärt Erwartung; alle übernehmen einen Beziehungskreis und definieren Rückfluss ins Team.', roadmapPhase:'q3_2026'},
-  c4:{owner:'Corina, Sarina, Donja', agency:'Corina hostet dialogische Formate; Sarina achtet auf Kultur-/Hosting-Qualität; Donja verbindet Needs mit Leadership-Angeboten.', roadmapPhase:'q4_2026'},
-  c5:{owner:'Corina', agency:'Corina stellt den OS Canvas in einer Teamsitzung vor und schlägt einen Pilotfall vor.', roadmapPhase:'q3_2026'},
-  c6:{owner:'Christiane, Juliane', agency:'Christiane priorisiert Erweiterungen; Juliane prüft Anschluss an Graduate Center/GRACE und Fortbildungslogik.', roadmapPhase:'q1_2027'},
-  w1:{owner:'Carla, Juliane', agency:'Carla sammelt vorhandene Zahlen; Juliane ergänzt Teilnahme-/Anmeldedaten und bestehende Feedbacks.', roadmapPhase:'now'},
-  w2:{owner:'Donja, Achim, Sarina', agency:'Donja formuliert Wirkungslogiken für Leadership; Achim macht sie als Canvas sichtbar; Sarina ergänzt Kultur-/Transferfragen.', roadmapPhase:'q3_2026'},
-  w3:{owner:'Achim, Donja, Carla', agency:'Achim entwirft KPI-Cluster; Donja prüft fachliche Aussagekraft; Carla testet, welche Daten realistisch pflegbar sind.', roadmapPhase:'q4_2026'},
-  w4:{owner:'Christiane, Carla', agency:'Christiane klärt Zugang mit HR; Carla sammelt konkrete Datenwünsche und Datenschutz-/Prozessfragen.', roadmapPhase:'q4_2026'},
-  w5:{owner:'Sarina, Corina, Donja', agency:'Sarina entwickelt kurze Bedürfnis-/Zufriedenheitsfragen; Corina verknüpft sie mit Needs-Dialogen; Donja prüft Transferfragen.', roadmapPhase:'q1_2027'},
-  w6:{owner:'Achim, Carla', agency:'Achim baut eine einfache Steuerungsübersicht; Carla pflegt Datenpunkte und Milestones testweise mit.', roadmapPhase:'q2_2027'},
-  f1:{owner:'Achim, Christiane', agency:'Achim pflegt die Funding-Landkarte; Christiane priorisiert strategische Passung und interne Anschlussstellen.', roadmapPhase:'q3_2026'},
-  f2:{owner:'Achim, Sarina, Donja', agency:'Achim formuliert Projektpakete; Sarina schärft Healthy/Sustainable Culture; Donja schärft Leadership/Future Skills.', roadmapPhase:'q4_2026'},
-  f3:{owner:'Christiane, Achim', agency:'Christiane setzt strategisches Narrativ; Achim übersetzt es in Pitch-/One-Pager-Textbausteine.', roadmapPhase:'q4_2026'},
-  f4:{owner:'Christiane', agency:'Christiane spricht Grants Office, Fundraising, Sustainability und HR/BGM an und klärt Andockpunkte.', roadmapPhase:'q1_2027'},
-  f5:{owner:'Donja, Achim, Carla', agency:'Donja definiert Wirkung; Achim baut One-Pager-Struktur; Carla prüft Daten-/Evaluationslogik.', roadmapPhase:'q1_2027'},
-  f6:{owner:'Christiane, Team', agency:'Team prüft harte Passung: stärkt es Fokus und Wirkung oder erzeugt es neue Verzettelung?', roadmapPhase:'h2_2027'}
+  r1:{owner:'TBD', agency:'', roadmapPhase:'now'},
+  r2:{owner:'TBD', agency:'', roadmapPhase:'q3_2026'},
+  r3:{owner:'TBD', agency:'', roadmapPhase:'q3_2026'},
+  r4:{owner:'TBD', agency:'', roadmapPhase:'q4_2026'},
+  r5:{owner:'TBD', agency:'', roadmapPhase:'q4_2026'},
+  r6:{owner:'TBD', agency:'', roadmapPhase:'q1_2027'},
+  k1:{owner:'TBD', agency:'', roadmapPhase:'q3_2026'},
+  k2:{owner:'TBD', agency:'', roadmapPhase:'q3_2026'},
+  k3:{owner:'TBD', agency:'', roadmapPhase:'q4_2026'},
+  k4:{owner:'TBD', agency:'', roadmapPhase:'q4_2026'},
+  k5:{owner:'TBD', agency:'', roadmapPhase:'q3_2026'},
+  k6:{owner:'TBD', agency:'', roadmapPhase:'q3_2026'},
+  c1:{owner:'TBD', agency:'', roadmapPhase:'now'},
+  c2:{owner:'TBD', agency:'', roadmapPhase:'q3_2026'},
+  c3:{owner:'TBD', agency:'', roadmapPhase:'q3_2026'},
+  c4:{owner:'TBD', agency:'', roadmapPhase:'q4_2026'},
+  c5:{owner:'TBD', agency:'', roadmapPhase:'q3_2026'},
+  c6:{owner:'TBD', agency:'', roadmapPhase:'q1_2027'},
+  w1:{owner:'TBD', agency:'', roadmapPhase:'now'},
+  w2:{owner:'TBD', agency:'', roadmapPhase:'q3_2026'},
+  w3:{owner:'TBD', agency:'', roadmapPhase:'q4_2026'},
+  w4:{owner:'TBD', agency:'', roadmapPhase:'q4_2026'},
+  w5:{owner:'TBD', agency:'', roadmapPhase:'q1_2027'},
+  w6:{owner:'TBD', agency:'', roadmapPhase:'q2_2027'},
+  f1:{owner:'TBD', agency:'', roadmapPhase:'q3_2026'},
+  f2:{owner:'TBD', agency:'', roadmapPhase:'q4_2026'},
+  f3:{owner:'TBD', agency:'', roadmapPhase:'q4_2026'},
+  f4:{owner:'TBD', agency:'', roadmapPhase:'q1_2027'},
+  f5:{owner:'TBD', agency:'', roadmapPhase:'q1_2027'},
+  f6:{owner:'TBD', agency:'', roadmapPhase:'h2_2027'}
 };
 function migrateData(obj){
   obj.fields.forEach(f=>f.cards.forEach(c=>{
     const d=AGENCY_DEFAULTS[c.id]||{};
-    if(c.owner===undefined) c.owner=d.owner||'';
-    if(c.agency===undefined) c.agency=d.agency||'Was kann ich konkret tun? Owner und nächster Schritt im Team klären.';
+    if(c.owner===undefined || c.owner==='') c.owner=d.owner||'TBD';
+    if(c.agency===undefined) c.agency=d.agency||'';
     if(c.roadmapPhase===undefined) c.roadmapPhase=d.roadmapPhase||phaseFromLane(c.lane);
     const range = phaseToMonths(c.roadmapPhase);
     if(c.startMonth===undefined) c.startMonth=range.start;
@@ -326,7 +326,7 @@ function syncPhaseFromMonths(c){
   else c.roadmapPhase='custom';
 }
 
-const STORAGE_KEY = 'ld_retreat_whiteboard_handlungsfelder_v3';
+const STORAGE_KEY = 'ld_retreat_whiteboard_handlungsfelder_v4_tbd';
 let data = migrateData(loadData());
 let currentTab = 'overview';
 let currentFieldId = 'rollenbild';
@@ -395,8 +395,8 @@ function renderCard(c,f){
     <div class="meta"><span class="tag prio">Prio ${c.priority}</span><button class="open" onclick="openCard('${f.id}','${c.id}')" title="bearbeiten">⋯</button></div>
     <h4>${esc(c.focus)}</h4>
     <p>${esc(c.measure)}</p>
-    <div class="agency-row"><span class="owner-pill">${esc(c.owner || 'Owner offen')}</span><span class="tag">${phaseLabel(c.roadmapPhase)}</span></div>
-    <div class="agency-text"><b>Agency:</b> ${esc(c.agency || 'Was kann ich konkret tun?')}</div>
+    <div class="agency-row"><span class="owner-pill">${esc(c.owner || 'TBD')}</span><span class="tag">${phaseLabel(c.roadmapPhase)}</span></div>
+    <div class="agency-text"><b>Agency:</b> ${esc(c.agency || 'TBD')}</div>
     <p class="criterion"><b>Erfolg:</b> ${esc(c.criterion)}</p>
   </article>`;
 }
@@ -413,7 +413,7 @@ function renderRoadmap(){
   const el=document.getElementById('roadmapView'); if(!el) return;
   const all=getAllCards();
   const timed=all.filter(c=>c.startMonth && c.endMonth).length;
-  const owners=new Set(all.flatMap(c=>(c.owner||'').split(',').map(x=>x.trim()).filter(Boolean)));
+  const owners=new Set(all.flatMap(c=>(c.owner||'').split(',').map(x=>x.trim()).filter(x=>x && x !== 'TBD')));
   const currentFilter=document.getElementById('roadmapFilter')?.value || 'all';
   el.innerHTML = `<div class="roadmap-wrap">
     <div class="roadmap-intro">
@@ -442,7 +442,7 @@ function renderGanttRow(c){
   const range=valid?`${monthLabel(c.startMonth)} – ${monthLabel(c.endMonth)}`:'Timing offen';
   const fieldLabel=`${c.fieldOrder}. ${f?.name||c.fieldId}`;
   return `<div class="gantt-row">
-    <div class="gantt-task" onclick="openCard('${c.fieldId}','${c.id}')" title="Details öffnen"><b>${esc(c.focus)}</b><small>${esc(fieldLabel)} · ${esc(c.owner||'Owner offen')} · ${range}</small></div>
+    <div class="gantt-task" onclick="openCard('${c.fieldId}','${c.id}')" title="Details öffnen"><b>${esc(c.focus)}</b><small>${esc(fieldLabel)} · ${esc(c.owner||'TBD')} · ${range}</small></div>
     <div class="gantt-months">${valid?`<div class="gantt-bar" style="--bar-accent:${accent};grid-column:${start}/span ${span}" onclick="openCard('${c.fieldId}','${c.id}')" title="${esc(c.focus)} · ${esc(fieldLabel)}"><span class="field-chip">${c.fieldOrder}</span><span>${esc(c.focus)}</span></div>`:`<div class="gantt-bar" style="--bar-accent:#8f8a82;grid-column:1/span 2" onclick="openCard('${c.fieldId}','${c.id}')"><span class="field-chip">?</span><span>${esc(c.focus)}</span></div>`}</div>
   </div>`;
 }
@@ -492,7 +492,7 @@ function openCard(fieldId, cardId){
 }
 function addCardToCurrent(){
   const f=getField(); const id='new_'+Date.now(); const nextPrio = Math.max(0,...f.cards.map(c=>Number(c.priority)||0))+1;
-  const c={id, priority:nextPrio, lane:'now', roadmapPhase:'q3_2026', owner:'', agency:'Was kann ich konkret tun? Owner und nächster Schritt klären…', focus:'Neue Karte', measure:'Massnahme ergänzen…', criterion:'Erfolgskriterium ergänzen…', notes:''};
+  const c={id, priority:nextPrio, lane:'now', roadmapPhase:'q3_2026', owner:'TBD', agency:'', focus:'Neue Karte', measure:'Massnahme ergänzen…', criterion:'Erfolgskriterium ergänzen…', notes:''};
   f.cards.push(c); localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); openCard(f.id,id);
 }
 function cardForm(f,c,isNew){
@@ -500,10 +500,10 @@ function cardForm(f,c,isNew){
     <div class="field"><label>Priorität</label><input id="editPriority" type="number" min="1" value="${esc(c.priority)}"></div>
     <div class="field"><label>Lane / Stand</label><select id="editLane">${LANES.map(l=>`<option value="${l.id}" ${c.lane===l.id?'selected':''}>${l.label}</option>`).join('')}</select></div>
     <div class="field full"><label>Roadmap / Zeitraum</label><div class="date-field-row"><select id="editStartMonth">${monthOptions(c.startMonth)}</select><select id="editEndMonth">${monthOptions(c.endMonth)}</select></div></div>
-    <div class="field"><label>Agency / Wer?</label><input id="editOwner" list="peopleList" value="${esc(c.owner||'')}" placeholder="z.B. Achim, Christiane"><datalist id="peopleList">${PEOPLE.map(p=>`<option value="${p}">`).join('')}</datalist></div>
+    <div class="field"><label>Zuordnung / Wer?</label><input id="editOwner" list="peopleList" value="${esc(c.owner||'TBD')}" placeholder="TBD oder Name auswählen"><datalist id="peopleList">${PEOPLE.map(p=>`<option value="${p}">`).join('')}</datalist></div>
     <div class="field full"><label>Ziel / Fokus</label><input id="editFocus" value="${esc(c.focus)}"></div>
     <div class="field full"><label>Massnahmen</label><textarea id="editMeasure">${esc(c.measure)}</textarea></div>
-    <div class="field full"><label>Was kann ich / können wir konkret tun?</label><textarea id="editAgency">${esc(c.agency||'')}</textarea></div>
+    <div class="field full"><label>Was kann ich / können wir konkret tun?</label><textarea id="editAgency" placeholder="Noch nicht ausgefüllt…">${esc(c.agency||'')}</textarea></div>
     <div class="field full"><label>Erfolgskriterien bis Mitte 2027</label><textarea id="editCriterion">${esc(c.criterion)}</textarea></div>
     <div class="field full"><label>Notizen / Gruppenwording</label><textarea id="editNotes">${esc(c.notes||'')}</textarea></div>
   </div>
